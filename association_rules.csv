@@ -1,0 +1,21 @@
+antecedents_str,consequents_str,support,confidence,lift
+"HighPain, Q16_HealthDashboard_High, Q20_WTP_Binary",Flag_ValueSeeker,0.10166666666666667,1.0,6.779661016949153
+"Flag_ValueSeeker, Q16_HealthDashboard_High","HighPain, Q20_WTP_Binary",0.10166666666666667,1.0,6.779661016949153
+"HighPain, Q16_RemittanceBestRate_High, Q20_WTP_Binary",Flag_ValueSeeker,0.1275,1.0,6.779661016949153
+"HighPain, Q20_WTP_Binary",Flag_ValueSeeker,0.1475,1.0,6.779661016949153
+Flag_ValueSeeker,"HighPain, Q16_HealthDashboard_High, Q20_WTP_Binary",0.10166666666666667,0.6892655367231639,6.779661016949153
+"HighPain, Q16_SavingsGoals_High, Q20_WTP_Binary",Flag_ValueSeeker,0.105,1.0,6.779661016949153
+"HighPain, Q16_MultiCurrencyTracking_High, Q20_WTP_Binary",Flag_ValueSeeker,0.14,1.0,6.779661016949153
+"HighPain, Q20_WTP_Binary","Flag_ValueSeeker, Q16_HealthDashboard_High",0.10166666666666667,0.6892655367231639,6.779661016949153
+"Flag_ValueSeeker, Q16_MultiCurrencyTracking_High","HighPain, Q20_WTP_Binary",0.14,1.0,6.779661016949153
+Flag_ValueSeeker,"HighPain, Q16_SavingsGoals_High, Q20_WTP_Binary",0.105,0.711864406779661,6.779661016949153
+"Flag_ValueSeeker, Q16_RemittanceBestRate_High","HighPain, Q20_WTP_Binary",0.1275,1.0,6.779661016949153
+"Flag_ValueSeeker, Q16_AIExpenseCategorisation_High","HighPain, Q20_WTP_Binary",0.11916666666666667,1.0,6.779661016949153
+"Flag_ValueSeeker, Q16_SavingsGoals_High","HighPain, Q20_WTP_Binary",0.105,1.0,6.779661016949153
+"HighPain, Q20_WTP_Binary","Flag_ValueSeeker, Q16_AIExpenseCategorisation_High",0.11916666666666667,0.8079096045197741,6.779661016949153
+"HighPain, Q20_WTP_Binary","Flag_ValueSeeker, Q16_SavingsGoals_High",0.105,0.711864406779661,6.779661016949153
+Flag_ValueSeeker,"HighPain, Q11_Subscriptions, Q20_WTP_Binary",0.1075,0.728813559322034,6.779661016949153
+"HighPain, Q11_Subscriptions, Q20_WTP_Binary",Flag_ValueSeeker,0.1075,1.0,6.779661016949153
+"Flag_ValueSeeker, Q11_Subscriptions","HighPain, Q20_WTP_Binary",0.1075,1.0,6.779661016949153
+Flag_ValueSeeker,"HighPain, Q16_AIExpenseCategorisation_High, Q20_WTP_Binary",0.11916666666666667,0.8079096045197741,6.779661016949153
+"HighPain, Q16_AIExpenseCategorisation_High, Q20_WTP_Binary",Flag_ValueSeeker,0.11916666666666667,1.0,6.779661016949153

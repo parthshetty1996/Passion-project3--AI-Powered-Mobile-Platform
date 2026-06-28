@@ -1,0 +1,371 @@
+{
+  "descriptive": {
+    "wtp_willing_pct": 61.1,
+    "wtp_dist": {
+      "1": 733,
+      "0": 467
+    },
+    "avg_download_score": 6.19,
+    "avg_nps": 6.62,
+    "nps_breakdown": {
+      "Detractor": 555,
+      "Passive": 438,
+      "Promoter": 207
+    },
+    "avg_pain": 3.21,
+    "avg_wtp_aed": 51.0,
+    "median_wtp_aed": 50.0
+  },
+  "crosstab": {
+    "wtp_by_persona": {
+      "Not Willing": {
+        "Cautious Saver": 47.4,
+        "High-Earning Nomad": 24.6,
+        "Senior Finance Pro": 28.8,
+        "Struggling Expat": 65.7,
+        "Tech-Savvy Millennial": 25.9
+      },
+      "Willing": {
+        "Cautious Saver": 52.6,
+        "High-Earning Nomad": 75.4,
+        "Senior Finance Pro": 71.2,
+        "Struggling Expat": 34.3,
+        "Tech-Savvy Millennial": 74.1
+      }
+    },
+    "wtp_by_income": {
+      "Not Willing": {
+        "10-20k": 39.7,
+        "20-40k": 34.9,
+        "5-10k": 50.7,
+        "<5k": 56.9,
+        ">40k": 32.3,
+        "PNS": 25.0
+      },
+      "Willing": {
+        "10-20k": 60.3,
+        "20-40k": 65.1,
+        "5-10k": 49.3,
+        "<5k": 43.1,
+        ">40k": 67.7,
+        "PNS": 75.0
+      }
+    }
+  },
+  "diagnostic": {
+    "pain_wtp_r": -0.394,
+    "pain_dl_r": -0.169,
+    "tech_wtp_r": 0.133
+  },
+  "classification": {
+    "KNN": {
+      "train_acc": 0.7594,
+      "test_acc": 0.7375,
+      "precision": 0.753,
+      "recall": 0.8503,
+      "f1": 0.7987,
+      "auc": 0.7197,
+      "cm": [
+        [
+          52,
+          41
+        ],
+        [
+          22,
+          125
+        ]
+      ]
+    },
+    "Decision Tree": {
+      "train_acc": 0.8156,
+      "test_acc": 0.7583,
+      "precision": 0.7834,
+      "recall": 0.8367,
+      "f1": 0.8092,
+      "auc": 0.8195,
+      "cm": [
+        [
+          59,
+          34
+        ],
+        [
+          24,
+          123
+        ]
+      ]
+    },
+    "Random Forest": {
+      "train_acc": 0.8698,
+      "test_acc": 0.7833,
+      "precision": 0.7487,
+      "recall": 0.9728,
+      "f1": 0.8462,
+      "auc": 0.784,
+      "cm": [
+        [
+          45,
+          48
+        ],
+        [
+          4,
+          143
+        ]
+      ]
+    },
+    "Gradient Boosting": {
+      "train_acc": 1.0,
+      "test_acc": 0.775,
+      "precision": 0.7719,
+      "recall": 0.898,
+      "f1": 0.8302,
+      "auc": 0.8234,
+      "cm": [
+        [
+          54,
+          39
+        ],
+        [
+          15,
+          132
+        ]
+      ]
+    },
+    "rf_feature_importance": {
+      "Flag_ValueSeeker": 0.1438,
+      "Eng_PainGap": 0.0732,
+      "Derived_PainComposite": 0.072,
+      "Eng_AdoptionReadiness": 0.0559,
+      "Q24_DownloadLikelihood": 0.0299,
+      "Eng_DigitalEngagement": 0.0254,
+      "Q1_AgeRaw": 0.0245,
+      "Q16_SavingsGoals": 0.0234,
+      "Q27_CurrentSatisfaction": 0.0221,
+      "Q16_InvestmentTracking": 0.0196,
+      "Q13_UnexpectedExpenses": 0.0182,
+      "Q13_Overspent": 0.0179,
+      "Q13_SavingsHabit": 0.0178,
+      "Q7_YearsDubai": 0.0169,
+      "Q14_BiggestChallenge": 0.0167
+    }
+  },
+  "clustering": {
+    "silhouette": 0.0798,
+    "db_score": 3.2043,
+    "variance_explained_2d": [
+      0.1555,
+      0.0835
+    ],
+    "cluster_profile": {
+      "n": {
+        "Budget-Conscious Expats": 292,
+        "Digital-First Millennials": 322,
+        "Finance Professionals": 200,
+        "High-Value Nomads": 386
+      },
+      "pain": {
+        "Budget-Conscious Expats": 4.06,
+        "Digital-First Millennials": 3.1,
+        "Finance Professionals": 2.86,
+        "High-Value Nomads": 2.84
+      },
+      "tech": {
+        "Budget-Conscious Expats": 1.8,
+        "Digital-First Millennials": 4.14,
+        "Finance Professionals": 2.0,
+        "High-Value Nomads": 3.11
+      },
+      "wtp": {
+        "Budget-Conscious Expats": 19.9,
+        "Digital-First Millennials": 49.6,
+        "Finance Professionals": 42.9,
+        "High-Value Nomads": 79.9
+      },
+      "readiness": {
+        "Budget-Conscious Expats": 0.6,
+        "Digital-First Millennials": 0.71,
+        "Finance Professionals": 0.59,
+        "High-Value Nomads": 0.66
+      },
+      "age": {
+        "Budget-Conscious Expats": 36.26,
+        "Digital-First Millennials": 31.67,
+        "Finance Professionals": 39.58,
+        "High-Value Nomads": 42.02
+      },
+      "income": {
+        "Budget-Conscious Expats": 2.65,
+        "Digital-First Millennials": 3.18,
+        "Finance Professionals": 3.28,
+        "High-Value Nomads": 3.99
+      }
+    },
+    "cluster_name_map": {
+      "0": "Digital-First Millennials",
+      "1": "High-Value Nomads",
+      "2": "High-Value Nomads",
+      "3": "Budget-Conscious Expats",
+      "4": "Finance Professionals"
+    }
+  },
+  "association": {
+    "total_rules": 11946,
+    "filtered_rules": 1388,
+    "top_rules": [
+      {
+        "antecedents_str": "HighPain, Q16_HealthDashboard_High, Q20_WTP_Binary",
+        "consequents_str": "Flag_ValueSeeker",
+        "support": 0.10166666666666667,
+        "confidence": 1.0,
+        "lift": 6.779661016949153
+      },
+      {
+        "antecedents_str": "Flag_ValueSeeker, Q16_HealthDashboard_High",
+        "consequents_str": "HighPain, Q20_WTP_Binary",
+        "support": 0.10166666666666667,
+        "confidence": 1.0,
+        "lift": 6.779661016949153
+      },
+      {
+        "antecedents_str": "HighPain, Q16_RemittanceBestRate_High, Q20_WTP_Binary",
+        "consequents_str": "Flag_ValueSeeker",
+        "support": 0.1275,
+        "confidence": 1.0,
+        "lift": 6.779661016949153
+      },
+      {
+        "antecedents_str": "HighPain, Q20_WTP_Binary",
+        "consequents_str": "Flag_ValueSeeker",
+        "support": 0.1475,
+        "confidence": 1.0,
+        "lift": 6.779661016949153
+      },
+      {
+        "antecedents_str": "Flag_ValueSeeker",
+        "consequents_str": "HighPain, Q16_HealthDashboard_High, Q20_WTP_Binary",
+        "support": 0.10166666666666667,
+        "confidence": 0.6892655367231639,
+        "lift": 6.779661016949153
+      },
+      {
+        "antecedents_str": "HighPain, Q16_SavingsGoals_High, Q20_WTP_Binary",
+        "consequents_str": "Flag_ValueSeeker",
+        "support": 0.105,
+        "confidence": 1.0,
+        "lift": 6.779661016949153
+      },
+      {
+        "antecedents_str": "HighPain, Q16_MultiCurrencyTracking_High, Q20_WTP_Binary",
+        "consequents_str": "Flag_ValueSeeker",
+        "support": 0.14,
+        "confidence": 1.0,
+        "lift": 6.779661016949153
+      },
+      {
+        "antecedents_str": "HighPain, Q20_WTP_Binary",
+        "consequents_str": "Flag_ValueSeeker, Q16_HealthDashboard_High",
+        "support": 0.10166666666666667,
+        "confidence": 0.6892655367231639,
+        "lift": 6.779661016949153
+      },
+      {
+        "antecedents_str": "Flag_ValueSeeker, Q16_MultiCurrencyTracking_High",
+        "consequents_str": "HighPain, Q20_WTP_Binary",
+        "support": 0.14,
+        "confidence": 1.0,
+        "lift": 6.779661016949153
+      },
+      {
+        "antecedents_str": "Flag_ValueSeeker",
+        "consequents_str": "HighPain, Q16_SavingsGoals_High, Q20_WTP_Binary",
+        "support": 0.105,
+        "confidence": 0.711864406779661,
+        "lift": 6.779661016949153
+      }
+    ]
+  },
+  "regression": {
+    "wtp": {
+      "Linear Regression": {
+        "R2": 0.2636,
+        "MAE": 20.891,
+        "RMSE": 29.3135
+      },
+      "Ridge": {
+        "R2": 0.2732,
+        "MAE": 20.6471,
+        "RMSE": 29.1213
+      },
+      "Random Forest Reg": {
+        "R2": 0.2909,
+        "MAE": 20.2576,
+        "RMSE": 28.7653
+      },
+      "Gradient Boosting Reg": {
+        "R2": 0.2075,
+        "MAE": 21.7087,
+        "RMSE": 30.41
+      }
+    },
+    "download": {
+      "Linear Regression": {
+        "R2": 0.1164,
+        "MAE": 1.2285,
+        "RMSE": 1.6422
+      },
+      "Ridge": {
+        "R2": 0.1177,
+        "MAE": 1.2261,
+        "RMSE": 1.6411
+      },
+      "Random Forest Reg": {
+        "R2": 0.1883,
+        "MAE": 1.1627,
+        "RMSE": 1.5741
+      },
+      "Gradient Boosting Reg": {
+        "R2": 0.12,
+        "MAE": 1.2143,
+        "RMSE": 1.639
+      }
+    },
+    "rf_fi_wtp": {
+      "Eng_PainGap": 0.13714,
+      "Q1_AgeRaw": 0.09286,
+      "Q13_DissatisifiedTools": 0.06053,
+      "Derived_FinancialStress": 0.05012,
+      "Q13_LoseFXMoney": 0.04118,
+      "Eng_DigitalEngagement": 0.03842,
+      "Q13_DiffTrackMultiCurrency": 0.03563,
+      "Derived_PainComposite": 0.02943,
+      "Q16_MultiCurrencyTracking": 0.02457,
+      "Q23_Incentive": 0.02218,
+      "Q9_ReviewFrequency": 0.02184,
+      "Derived_AdoptionAttitude": 0.02085,
+      "Q15_MoneyLost": 0.02072,
+      "Derived_TechAffinity": 0.01982,
+      "Q13_SavingsHabit": 0.01971
+    }
+  },
+  "business": {
+    "top_features": {
+      "Multi-Currency Tracking": 4.16,
+      "Health Dashboard": 4.1,
+      "Remittance Best Rate": 4.08,
+      "Savings Goals": 4.08,
+      "AI Expense Categorisation": 4.02
+    },
+    "pricing_preferred": "Freemium",
+    "pricing_dist": {
+      "Freemium": 523,
+      "Monthly Sub": 253,
+      "Annual Sub": 185,
+      "Free with Ads": 130,
+      "Pay-per-feature": 57,
+      "One-time": 52
+    },
+    "wtp_willing_pct": 61.1,
+    "median_wtp": 50.0,
+    "value_seeker_count": 177,
+    "high_conf_count": 135
+  }
+}
