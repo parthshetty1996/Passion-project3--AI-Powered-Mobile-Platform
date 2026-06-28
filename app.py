@@ -375,7 +375,7 @@ with tabs[2]:
     def train_classifiers(_df):
         feat_cols = [c for c in _df.columns
                      if c not in LEAKAGE_CLF and not c.endswith("_Label")
-                     and _df[c].dtype in [np.float64, np.int64]]
+                     and pd.api.types.is_numeric_dtype(_df[c])]
         X = _df[feat_cols].fillna(0)
         y = _df["Q20_WTP_Binary"]
         Xtr,Xte,ytr,yte = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
@@ -423,7 +423,7 @@ with tabs[2]:
         "Precision":f"{v['precision']:.3f}","Recall":f"{v['recall']:.3f}",
         "F1":f"{v['f1']:.3f}","AUC":(f"{v['auc']:.3f}" if v['auc'] is not None else "N/A")
     } for n,v in clf_res.items()}).T.reset_index().rename(columns={"index":"Model"})
-    st.dataframe(perf, use_container_width=True, hide_index=True)
+    st.dataframe(perf.reset_index(drop=True), use_container_width=True)
 
     best_m = max(clf_res.items(), key=lambda x: x[1]["f1"])[0]
     _best_auc = clf_res[best_m]['auc']
@@ -648,8 +648,9 @@ with tabs[5]:
 
     @st.cache_resource
     def train_regressors(_df):
-        fcols = [c for c in _df.select_dtypes(include=[np.number]).columns
-                 if c not in LEAKAGE_REG and not c.endswith("_Label")]
+        fcols = [c for c in _df.columns
+                 if c not in LEAKAGE_REG and not c.endswith("_Label")
+                 and pd.api.types.is_numeric_dtype(_df[c])]
         X = _df[fcols].fillna(0)
         sc = StandardScaler()
         Xsc = sc.fit_transform(X)
@@ -659,9 +660,9 @@ with tabs[5]:
                 continue
             y = _df[tgt]
             Xtr,Xte,ytr,yte = train_test_split(Xsc,y,test_size=0.2,random_state=42)
-            ms = {"Linear":LinearRegression(),"Ridge":Ridge(1.0),
-                  "RF":RandomForestRegressor(150,max_depth=8,random_state=42,n_jobs=-1),
-                  "GB":GradientBoostingRegressor(150,max_depth=5,learning_rate=0.08,random_state=42)}
+            ms = {"Linear":LinearRegression(),"Ridge":Ridge(alpha=1.0),
+                  "RF":RandomForestRegressor(n_estimators=150,max_depth=8,random_state=42,n_jobs=-1),
+                  "GB":GradientBoostingRegressor(n_estimators=150,max_depth=5,learning_rate=0.08,random_state=42)}
             out[tgt]={}
             for mn,m in ms.items():
                 m.fit(Xtr,ytr); yp=m.predict(Xte)
@@ -685,7 +686,7 @@ with tabs[5]:
     perf_r = pd.DataFrame({mn:{"R²":f"{v['r2']:.3f}","MAE":f"{v['mae']:.2f}","RMSE":f"{v['rmse']:.2f}"}
                            for mn,v in tres.items() if isinstance(v,dict) and "r2" in v}).T.reset_index()
     perf_r.columns = ["Model","R²","MAE","RMSE"]
-    st.dataframe(perf_r, use_container_width=True, hide_index=True)
+    st.dataframe(perf_r.reset_index(drop=True), use_container_width=True)
 
     best_rn = max([(k,v) for k,v in tres.items() if isinstance(v,dict) and "r2" in v],
                   key=lambda x:x[1]["r2"])[0]
